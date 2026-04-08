@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaStar } from "react-icons/fa";
+import { Link } from 'react-router';
 
 const BookCard = ({ book }) => {
     return (
-        <div className='space-y-6 p-6 border border-[#13131326] rounded-2xl'>
+        <Link to={`/book-details/${book.bookId}`} className='space-y-6 p-6 border border-[#13131326] rounded-2xl'>
 
             <div className='bg-[#F3F3F3] flex items-center justify-center p-10 rounded-2xl'>
-                <img src={book.image} className='rotate-x-15 rotate-y-30 hover:-rotate-y-30 duration-500' alt="" width='134' />
+                <img src={book.image} className='rotate-x-15 rotate-y-30 hover:-rotate-y-30 duration-700 h-55' alt="" width='134'  />
             </div>
 
             <div>
@@ -28,7 +29,7 @@ const BookCard = ({ book }) => {
 
 
             </div>
-        </div>
+        </Link>
     );
 };
 

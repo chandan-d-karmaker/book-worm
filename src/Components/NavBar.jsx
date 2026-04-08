@@ -4,8 +4,8 @@ import { NavLink } from 'react-router';
 
 const NavBar = () => {
     return (
-        <div className='bg-base-100 shadow-sm '>
-            <div className="navbar w-4/5 mx-auto">
+        <div className='bg-base-100 shadow-sm'>
+            <div className="navbar md:w-4/5 mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -14,21 +14,21 @@ const NavBar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a href="" className="btn font-normal">Home</a></li>
-                            <li><a href="" className="btn font-normal">Listed Books</a></li>
-                            <li><a href="" className="btn font-normal">Pages to Read</a></li>
+                            <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Home</NavLink></li>
+                            <li><NavLink to={'/listed-books'} className={({ isActive }) => isActive ? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Listed Books</NavLink></li>
+                            <li><NavLink to={'/toread'} className={({ isActive }) => isActive ? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Pages to Read</NavLink></li>
                         </ul>
                     </div>
                     <a className="work text-[#131313] text-3xl font-bold!">Book Vibe</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal space-x-4 work">
-                        <li><NavLink to={'/'} className={({isActive})=>isActive? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Home</NavLink></li>
-                        <li><NavLink to={'/listed-books'} className={({isActive})=>isActive? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Listed Books</NavLink></li>
-                        <li><NavLink to={'/toread'} className={({isActive})=>isActive? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Pages to Read</NavLink></li>
+                        <li><NavLink to={'/'} className={({ isActive }) => isActive ? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Home</NavLink></li>
+                        <li><NavLink to={'/listed-books'} className={({ isActive }) => isActive ? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Listed Books</NavLink></li>
+                        <li><NavLink to={'/toread'} className={({ isActive }) => isActive ? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Pages to Read</NavLink></li>
                     </ul>
                 </div>
-                <div className="navbar-end space-x-4 ">
+                <div className="navbar-end space-x-4 hidden md:flex">
                     <a className="btn bg-[#23BE0A] text-white rounded-lg">Signin</a>
                     <a className="btn bg-[#59C6D2] text-white rounded-lg">Signup</a>
                 </div>
