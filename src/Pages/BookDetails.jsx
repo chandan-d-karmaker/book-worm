@@ -26,17 +26,21 @@ const BookDetails = () => {
                 </div>
                 <div className="divider my-1"></div>
                 <div className='space-y-4'>
-                    <p><span className='font-bold'>Review:</span> {ebook.review}</p>
+                    <p className='text-[#131313B2] max-h-30 overflow-scroll overflow-x-hidden'><span className='font-bold'>Review:</span> {ebook.review}</p>
                     <div className='space-x-2 mb-4'> <span className='font-bold'>Tags:</span>
                         <span className='work font-medium! text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-2xl'>{ebook.tags[0]}</span>
                         <span className='work font-medium! text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-2xl'>{ebook.tags[1]}</span>
                     </div>
                 </div>
-                <div>
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+                <div className='space-y-4 mt-6'>
+                    <p>Number of Pages: <span className='font-semibold'>{ebook.totalPages}</span>  </p>
+                    <p>Publisher: <span className='font-semibold'>{ebook.publisher}</span> </p>
+                    <p>Year of Publishing: <span className='font-semibold'>{ebook.yearOfPublishing}</span> </p>
+                    <p>Rating: <span className='font-semibold'>{ebook.rating}</span> </p>
+                </div>
+                <div className='flex gap-4 mt-2'>
+                    <button className='btn btn-outline btn-secondary text-black'>Read</button>
+                    <button className='btn btn-secondary'>Wishlist</button>
                 </div>
             </div>
         </div>
