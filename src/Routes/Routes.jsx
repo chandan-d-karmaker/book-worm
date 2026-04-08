@@ -11,7 +11,10 @@ export const router = createBrowserRouter([
     Component: Root,
     children: 
     [
-      {index: true, Component: Homepage},
+      {
+        index: true, 
+        Component: Homepage
+      },
       {
         path: '/listed-books',
         Component: ListedBooks,
