@@ -3,6 +3,7 @@ import Homepage from "../Pages/Homepage";
 import Root from "../Pages/Root";
 import Books from "../Components/Books";
 import ErrorElement from "../Components/ErrorElement";
+import ListedBooks from "../Components/ListedBooks";
 
 export const router = createBrowserRouter([
   {
@@ -12,8 +13,8 @@ export const router = createBrowserRouter([
     [
       {index: true, Component: Homepage},
       {
-        path: '/books',
-        Component: Books,
+        path: '/listed-books',
+        Component: ListedBooks,
       }
     ],
     errorElement: <ErrorElement/>,

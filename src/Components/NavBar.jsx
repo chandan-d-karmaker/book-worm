@@ -24,7 +24,7 @@ const NavBar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal space-x-4 work">
                         <li><NavLink to={'/'} className={({isActive})=>isActive? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Home</NavLink></li>
-                        <li><NavLink to={'/books'} className={({isActive})=>isActive? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Listed Books</NavLink></li>
+                        <li><NavLink to={'/listed-books'} className={({isActive})=>isActive? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Listed Books</NavLink></li>
                         <li><NavLink to={'/toread'} className={({isActive})=>isActive? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Pages to Read</NavLink></li>
                     </ul>
                 </div>
