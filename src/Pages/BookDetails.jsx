@@ -14,23 +14,35 @@ const BookDetails = () => {
 
 
     return (
-        <div className='w-4/5 mx-auto flex gap-12 mt-14 mb-10'>
+        <div className='w-4/5 mx-auto flex flex-col  md:flex-row gap-12 mt-14 mb-10'>
+            
+            {/* book img */}
             <div className='bg-[#F3F3F3] flex items-center justify-center p-10 rounded-2xl'>
                 <img src={ebook.image} className='rotate-x-15 rotate-y-30 hover:-rotate-y-30 duration-700 max-h-screen' alt="" />
             </div>
+
+            {/* book details */}
             <div className='w-full'>
+
+                {/* name */}
                 <div className='space-y-4'>
                     <h1 className='text-4xl font-bold! playfair'>{ebook.bookName}</h1>
                     <p className='font-medium! text-[#131313CC]'>By: {ebook.author}</p>
                 </div>
                 <div className="divider my-1"></div>
+
+                {/* category */}
                 <div>
                     <p className='font-semibold! text-[#131313CC]'>{ebook.category}</p>
                 </div>
                 <div className="divider my-1"></div>
+
+                {/* review */}
                 <div className='space-y-4'>
                     <p className='text-[#131313B2] max-h-30 overflow-scroll overflow-x-hidden'><span className='font-bold'>Review:</span> {ebook.review}</p>
-                    <div className='space-x-2 mb-4'> <span className='font-bold'>Tags:</span>
+
+                    {/* tags */}
+                    <div className='space-x-2 space-y-2 mb-4 flex flex-wrap items-center'> <span className='font-bold'>Tags:</span>
                         <span className='work font-medium! text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-2xl'>{ebook.tags[0]}</span>
                         <span className='work font-medium! text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-2xl'>{ebook.tags[1]}</span>
                     </div>
@@ -41,7 +53,7 @@ const BookDetails = () => {
                     <p>Year of Publishing: <span className='font-semibold'>{ebook.yearOfPublishing}</span> </p>
                     <p>Rating: <span className='font-semibold'>{ebook.rating}</span> </p>
                 </div>
-                <div className='flex gap-4 mt-2'>
+                <div className='flex gap-4 mt-4'>
                     <button className='btn btn-outline btn-secondary text-black' onClick={() => handleMarkAsRead(ebook)}>Mark as Read</button>
                     <button className='btn btn-secondary' onClick={()=> handleWishlist(ebook)}>Wishlist</button>
                 </div>

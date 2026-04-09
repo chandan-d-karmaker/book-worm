@@ -19,7 +19,7 @@ const NavBar = () => {
                             <li><NavLink to={'/toread'} className={({ isActive }) => isActive ? 'text-[#23BE0A] border border-[#23BE0A]' : ''}>Pages to Read</NavLink></li>
                         </ul>
                     </div>
-                    <a className="work text-[#131313] text-3xl font-bold!">Book Vibe</a>
+                    <a className="work text-[#131313] text-3xl font-bold! w-full">Book Vibe</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal space-x-4 work">

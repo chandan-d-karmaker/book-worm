@@ -6,7 +6,8 @@ import { Link } from 'react-router';
 
 const ListedBookCard = ({ book }) => {
     return (
-        <div className='flex gap-10 p-6 border border-[#13131326] rounded-2xl'>
+        <div className='flex flex-col md:flex-row gap-10 p-6 border border-[#13131326] rounded-2xl'>
+
             <div className='bg-[#F3F3F3] flex items-center justify-center px-8 py-5 rounded-2xl'>
                 <img src={book.image} className='rotate-x-15 rotate-y-30 hover:-rotate-y-30 duration-700 max-h-screen' alt="" width='134px' />
             </div>
@@ -18,7 +19,7 @@ const ListedBookCard = ({ book }) => {
                     <p className='font-medium! text-[#131313CC]'>By: {book.author}</p>
                 </div>
                 {/* tags */}
-                <div className='space-x-2 space-y-2 mb-4 mt-4 flex items-center'>
+                <div className='space-x-2 space-y-2 mb-4 mt-4 flex flex-wrap items-center'>
                     <span className='font-semibold'>Tags:</span>
                     <span className='font-medium! text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-2xl'>{book.tags[0]}</span>
                     <span className='font-medium! text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-2xl'>{book.tags[1]}</span>
