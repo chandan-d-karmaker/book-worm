@@ -1,6 +1,7 @@
 import React from 'react';
 import indicator from '../assets/indicator.svg';
 import pages from '../assets/pages.svg';
+import user from '../assets/publisher.svg'
 import { Link } from 'react-router';
 
 const ListedBookCard = ({ book }) => {
@@ -23,7 +24,10 @@ const ListedBookCard = ({ book }) => {
                     <span className='font-medium! text-[#23BE0A] bg-[#23BE0A0D] px-4 py-2 rounded-2xl'>{book.tags[1]}</span>
                     <span className='flex gap-2'> <img src={indicator} alt="" /> Year of Publishing: {book.yearOfPublishing}</span>
                 </div>
-                <span className='flex gap-2'> <img src={pages} alt="" /> Pages: {book.totalPages}</span>
+                <div className='flex gap-4 items-center'>
+                    <span className='flex gap-2'> <img src={user} alt="" /> Publisher: {book.publisher}</span>
+                    <span className='flex gap-2'> <img src={pages} alt="" /> Pages: {book.totalPages}</span>
+                </div>
                 <div className="divider"></div>
 
                 <div className='flex gap-2'>
