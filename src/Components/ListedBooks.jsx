@@ -1,21 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { bookContext } from '../ContextAPI/BookContext';
 import ListedBookCard from './ListedBookCard';
 import { NavLink } from 'react-router';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const ListedBooks = () => {
 
-    const [active, setActive] = useState('read');
 
-    const handleActive = () => {
-        if (active == 'read') {
-            setActive('wishlist');
-        } else {
-            setActive('read');
-        }
-    }
-
-    const { storedBooks } = useContext(bookContext);
+    const { storedBooks, wishlist } = useContext(bookContext);
     console.log(storedBooks);
 
     return (
@@ -34,19 +27,27 @@ const ListedBooks = () => {
                 </select>
             </div>
 
-            <div>
-                <button onClick={handleActive} className={`btn btn-secondary btn-outline ${active == 'read'? 'border-b-0 rounded-b-none' : 'border-0'}`}>Read Books</button>
-                <button onClick={handleActive} className={`btn btn-secondary btn-outline ${active == 'wishlist'? 'border-b-0 rounded-b-none' : 'border-0'}`}>Wishlist Books</button>
-                <hr className={`${active == 'read'? 'ml-28.5' : 'ml-62'}`} />
-            </div>
+            <Tabs>
+                <TabList>
+                    <Tab>Read Book</Tab>
+                    <Tab>Wishlist</Tab>
+                </TabList>
 
-            {
-                active == 'read' && <div className='mt-8 space-y-4'>
-                {
-                    storedBooks.map(book => <ListedBookCard key={book.bookId} book={book} />)
-                }
-                </div>
-            }
+                <TabPanel>
+                    <div className='space-y-4'>
+                        {
+                            storedBooks.map(book => <ListedBookCard key={book.bookId} book={book} />)
+                        }
+                    </div>
+                </TabPanel>
+                <TabPanel>
+                    <div className='space-y-4'>
+                        {
+                            wishlist.map(book => <ListedBookCard key={book.bookId} book={book} />)
+                        }
+                    </div>
+                </TabPanel>
+            </Tabs>
 
         </div>
     );
