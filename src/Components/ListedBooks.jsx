@@ -1,10 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { bookContext } from '../ContextAPI/BookContext';
 import ListedBookCard from './ListedBookCard';
+import { NavLink } from 'react-router';
 
 const ListedBooks = () => {
 
-    const {storedBooks} = useContext(bookContext);
+    const [active, setActive] = useState('read');
+
+    const handleActive = () => {
+        if (active == 'read') {
+            setActive('wishlist');
+        } else {
+            setActive('read');
+        }
+    }
+
+    const { storedBooks } = useContext(bookContext);
     console.log(storedBooks);
 
     return (
@@ -23,11 +34,19 @@ const ListedBooks = () => {
                 </select>
             </div>
 
-            <div className='mt-8 space-y-4'>
-                {
-                    storedBooks.map(book => <ListedBookCard key={book.bookId} book={book}/>)
-                }
+            <div>
+                <button onClick={handleActive} className={`btn btn-secondary btn-outline ${active == 'read'? 'border-b-0 rounded-b-none' : 'border-0'}`}>Read Books</button>
+                <button onClick={handleActive} className={`btn btn-secondary btn-outline ${active == 'wishlist'? 'border-b-0 rounded-b-none' : 'border-0'}`}>Wishlist Books</button>
+                <hr className={`${active == 'read'? 'ml-28.5' : 'ml-62'}`} />
             </div>
+
+            {
+                active == 'read' && <div className='mt-8 space-y-4'>
+                {
+                    storedBooks.map(book => <ListedBookCard key={book.bookId} book={book} />)
+                }
+                </div>
+            }
 
         </div>
     );
