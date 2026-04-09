@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
-import { toast } from 'react-toastify';
 import { bookContext } from '../ContextAPI/BookContext';
 
 const BookDetails = () => {
