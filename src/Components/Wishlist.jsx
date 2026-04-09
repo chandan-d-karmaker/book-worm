@@ -13,19 +13,19 @@ const Wishlist = ({ sortType }) => {
     useEffect(() => {
         if (sortType) {
             if (sortType == 'pages') {
-                const sortedData = [...sortedWishlist].sort((a, b) => a.totalPages - b.totalPages);
+                const sortedData = [...wishlist].sort((a, b) => a.totalPages - b.totalPages);
                 setSortedWishlist(sortedData);
             }
             else if (sortType == 'publish') {
-                const sortedData = [...sortedWishlist].sort((a, b) => a.yearOfPublishing - b.yearOfPublishing);
+                const sortedData = [...wishlist].sort((a, b) => a.yearOfPublishing - b.yearOfPublishing);
                 setSortedWishlist(sortedData);
             } else if (sortType == 'rating') {
-                const sortedData = [...sortedWishlist].sort((a, b) => b.rating - a.rating);
+                const sortedData = [...wishlist].sort((a, b) => b.rating - a.rating);
                 setSortedWishlist(sortedData);
             }
         }
 
-    }, [sortType, sortedWishlist])
+    }, [sortType, wishlist])
 
 
     let navigate = useNavigate();
