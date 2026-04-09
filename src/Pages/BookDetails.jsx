@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { toast } from 'react-toastify';
+import { bookContext } from '../ContextAPI/BookContext';
 
 const BookDetails = () => {
     const { id } = useParams();
@@ -9,17 +10,7 @@ const BookDetails = () => {
 
     const ebook = books.find(book => book.bookId == id);
 
-    const [storedBooks, setStoredBooks] = useState([]);
-
-    const handleMarkAsRead = (id) => {
-        const doesExist = storedBooks.find((book) => book.bookId === id);
-        if (doesExist) {
-            toast("Already in list");
-        } else {
-            toast("Marked as read");
-            
-        }
-    }
+    const {handleMarkAsRead} = useContext(bookContext);
 
 
 
@@ -52,7 +43,7 @@ const BookDetails = () => {
                     <p>Rating: <span className='font-semibold'>{ebook.rating}</span> </p>
                 </div>
                 <div className='flex gap-4 mt-2'>
-                    <button className='btn btn-outline btn-secondary text-black' onClick={() => handleMarkAsRead(ebook.bookId)}>Mark as Read</button>
+                    <button className='btn btn-outline btn-secondary text-black' onClick={() => handleMarkAsRead(ebook)}>Mark as Read</button>
                     <button className='btn btn-secondary'>Wishlist</button>
                 </div>
             </div>
