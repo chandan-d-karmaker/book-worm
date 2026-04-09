@@ -14,7 +14,7 @@ const BookDetails = () => {
 
 
     return (
-        <div className='w-4/5 mx-auto flex gap-12 mt-14'>
+        <div className='w-4/5 mx-auto flex gap-12 mt-14 mb-10'>
             <div className='bg-[#F3F3F3] flex items-center justify-center p-10 rounded-2xl'>
                 <img src={ebook.image} className='rotate-x-15 rotate-y-30 hover:-rotate-y-30 duration-700 max-h-screen' alt="" />
             </div>
