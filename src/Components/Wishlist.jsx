@@ -1,19 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { bookContext } from '../ContextAPI/BookContext';
 import EmptyState from './EmptyState';
 import ListedBookCard from './ListedBookCard';
 import { useNavigate } from 'react-router';
 
-const Wishlist = () => {
+const Wishlist = ({ sortType }) => {
 
     const { wishlist } = useContext(bookContext);
+
+    const [sortedWishlist, setSortedWishlist] = useState(wishlist);
+
+    useEffect(() => {
+        if (sortType) {
+            if (sortType == 'pages') {
+                const sortedData = [...sortedWishlist].sort((a, b) => a.totalPages - b.totalPages);
+                setSortedWishlist(sortedData);
+            }
+            else if (sortType == 'publish') {
+                const sortedData = [...sortedWishlist].sort((a, b) => a.yearOfPublishing - b.yearOfPublishing);
+                setSortedWishlist(sortedData);
+            } else if (sortType == 'rating') {
+                const sortedData = [...sortedWishlist].sort((a, b) => b.rating - a.rating);
+                setSortedWishlist(sortedData);
+            }
+        }
+
+    }, [sortType, sortedWishlist])
+
+
     let navigate = useNavigate();
-
-
-    if (wishlist.length === 0) {
+    if (sortedWishlist.length === 0) {
 
         return <div>
-            <EmptyState onAction={()=> navigate('/#books')} />
+            <EmptyState onAction={() => navigate('/#books')} />
         </div>
     }
     return (
@@ -21,7 +40,7 @@ const Wishlist = () => {
 
             <div className='space-y-4'>
                 {
-                    wishlist.map(book => <ListedBookCard key={book.bookId} book={book} />)
+                    sortedWishlist.map(book => <ListedBookCard key={book.bookId} book={book} />)
                 }
             </div>
 
