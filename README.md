@@ -74,6 +74,7 @@ src/
 <img src='./src/assets/preview/books.png' />
 <img src='./src/assets/preview/details.png' />
 <img src='./src/assets/preview/read.png' />
+<img src='./src/assets/preview/charts.png' />
 
 
 </div>
